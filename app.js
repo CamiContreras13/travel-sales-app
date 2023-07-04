@@ -12,7 +12,17 @@ console.log(enlaces);
 enlaces.forEach( function(enlace){
     enlace.addEventListener('click', function(){
         //remover class active
-
+        enlaces.forEach(function(enlace){
+            enlace.classList.remove('active');
+        });
+        //Agregar class active a quien corresponda
+        this.classList.add('active');
+        //Obtener el contenido correspondiente segun el enlace
+        let contenido = obtenerContenido(this.textContent);
+        //Mostrar contenido
+        tituloElemento.innerHTML = contenido.titulo;
+        subtituloElemento.innerHTML = contenido.subtitulo;
+        parrafoElemento.innerHTML = contenido.parrafo;
     });
 });
 
